@@ -42,4 +42,52 @@ describe('tests on the enhancer', () => {
 
         expect(enhancer.success(item)).toEqual(enhanced)
     })
+
+    it('should decrease durability by 5', () => {
+        const item = {
+            name: 'some name',
+            durability: 100,
+            enhancement: 14,
+        }
+
+        const failed = {
+            name: 'some name',
+            durability: 95,
+            enhancement: 14,
+        }
+
+        expect(enhancer.fail(item)).toEqual(failed)
+    })
+
+    it('should decrease durability by 10', () => {
+        const item = {
+            name: 'some name',
+            durability: 100,
+            enhancement: 16,
+        }
+
+        const failed = {
+            name: 'some name',
+            durability: 90,
+            enhancement: 16,
+        }
+
+        expect(enhancer.fail(item)).toEqual(failed)
+    })
+
+    it('should decrease durability by 10 and enhancement by 1', () => {
+        const item = {
+            name: 'some name',
+            durability: 100,
+            enhancement: 17,
+        }
+
+        const failed = {
+            name: 'some name',
+            durability: 90,
+            enhancement: 16,
+        }
+
+        expect(enhancer.fail(item)).toEqual(failed)
+    })
 })
