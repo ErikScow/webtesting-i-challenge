@@ -6,7 +6,15 @@ module.exports = {
 };
 
 function success(item) {
-  return { ...item };
+
+  let enhancementLevel = item.enhancement
+
+  if (enhancementLevel < 20){
+    enhancementLevel ++
+    return { ...item, enhancement: enhancementLevel}
+  } else {
+    return { ...item }
+  }
 }
 
 function fail(item) {
@@ -14,7 +22,7 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  return { ...item, durability: 100 };
 }
 
 function get(item) {
