@@ -90,4 +90,14 @@ describe('tests on the enhancer', () => {
 
         expect(enhancer.fail(item)).toEqual(failed)
     })
+
+    it('should return the unaltered item', () => {
+        const item ={
+            name: 'some name',
+            durability: 100,
+            enhancement: 20,
+        }
+
+        expect(enhancer.get(item)).toEqual(item)
+    })
 })
